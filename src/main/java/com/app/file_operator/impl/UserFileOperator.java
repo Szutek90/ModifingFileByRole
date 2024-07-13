@@ -12,6 +12,14 @@ public class UserFileOperator implements FileSetOperator<User> {
 
     @Override
     public Set<User> load(String filename) {
-        return new HashSet<>();
+        try (var lines = Files.lines(Paths.get(filename))) {
+            var users = new HashSet<User>();
+            for (var line : lines.toList()) {
+                users.add(User.parse(line));
+            }
+            return users;
+        } catch (Exception e) {
+            throw new IllegalStateException(e);
+        }
     }
 }
