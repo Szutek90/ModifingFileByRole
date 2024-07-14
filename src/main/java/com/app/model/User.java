@@ -1,9 +1,13 @@
 package com.app.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 import java.util.Objects;
 
+@ToString
+@EqualsAndHashCode
 @RequiredArgsConstructor
 public class User {
     private final String password;
@@ -21,29 +25,4 @@ public class User {
         return this.role.equals(role);
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "password='" + password + '\'' +
-                ", role=" + role +
-                ", id=" + id +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-        return id == user.id && Objects.equals(password, user.password) && role == user.role;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hashCode(password);
-        result = 31 * result + Objects.hashCode(role);
-        result = 31 * result + id;
-        return result;
-    }
 }
