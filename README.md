@@ -20,3 +20,15 @@ The project enables the management of text files by system users. Administrators
 ## Jacoco Coverage
 
 ![App Screenshot](src/test/resources/jacoco_raport.PNG)
+
+
+## Required files
+
+* Users file with pattern:
+
+  password1;username1;role1;id1
+  password2;username2;role2;id2
+
+* Data with pattern:
+
+  any text
